@@ -7,7 +7,7 @@
 
 import re
 
-pattern = re.compile('^ *([0-9]+) +([0-9]+) +([0-9]+)')
+pattern = re.compile('^ *([0-9]+) +([0-9]+)\*? +([0-9]+)')
 
 # Extract lines from weather.dat matching pattern, store matched groups
 # This swallows the whole file, so not suitable for big files.

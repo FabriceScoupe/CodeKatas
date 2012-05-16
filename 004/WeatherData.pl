@@ -11,7 +11,7 @@ my ($max_day, $max_mxt, $max_mnt, $max_spread) = (0, 0, 0, 0);
 
 open(my $fd, "<", "weather.dat") || die $?;
 while (<$fd>) {
-    if (/^ *([0-9]+) +([0-9]+) +([0-9]+)/) {
+    if (/^ *([0-9]+) +([0-9]+)\*? +([0-9]+)/) {
         print "Day: $1 MaxTemp: $2 MinTemp: $3 Spread: ".($2-$3)."\n";
         if ($2-$3 > $max_spread) {
             ($max_day, $max_mxt, $max_mnt, $max_spread) =
@@ -21,4 +21,4 @@ while (<$fd>) {
 }
 close($fd);
 
-print "Day with max temperature spread: $max_day, $max_mxt-$max_mnt=$max_spread\n";
+print "\nDay with max temperature spread: $max_day, $max_mxt-$max_mnt=$max_spread\n";

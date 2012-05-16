@@ -11,7 +11,7 @@ foreach {max_day max_mxt max_mnt max_spread} {0 0 0 0} break;
 
 set fd [open "weather.dat" "r"]
 while { [gets $fd line] >= 0 } {
-    if { [regexp -- {^ *([0-9]+) +([0-9]+) +([0-9]+)} $line m dy mxt mnt] } {
+    if {[regexp -- {^ *([0-9]+) +([0-9]+)\*? +([0-9]+)} $line m dy mxt mnt]} {
         puts "Day: $dy MaxTemp: $mxt MinTemp: $mnt Spread: [expr $mxt - $mnt]"
         if { [expr $mxt - $mnt] > $max_spread } {
             set max_day $dy
@@ -23,4 +23,4 @@ while { [gets $fd line] >= 0 } {
 }
 close $fd
 
-puts "Day with max temperature spread: $max_day, $max_mxt-$max_mnt=$max_spread"
+puts "\nDay with max temperature spread: $max_day, $max_mxt-$max_mnt=$max_spread"
