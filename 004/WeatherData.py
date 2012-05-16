@@ -26,4 +26,4 @@ print "\n".join(["Day: %d MaxTemp: %d MinTemp: %d Spread %d" % (g+spread(g))
 # Find tuple in groups with max temperature spread, using spread function
 g = max(groups, key = spread);
 
-print "Day with max temperature spread: %d, %d-%d=%d" % (g+spread(g))
+print "\nDay with max temperature spread: %d, %d-%d=%d" % (g+spread(g))
